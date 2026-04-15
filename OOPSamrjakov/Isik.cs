@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OOPSamrjakov
 {
-    public class Isik
+    public abstract class Isik
     {
         //Omadused ehk väljad
 
@@ -13,6 +13,9 @@ namespace OOPSamrjakov
 
         // Avalik omadus (Property) automaatse get/set logikaga
         public string Nimi { get; set; }
+
+        // Abstraktne meetod – sisu puudub, alamklassid PEAVAD selle ise looma
+        public abstract void Kirjelda();
 
         // Kontrollitud omadus
         public int Sünniaasta

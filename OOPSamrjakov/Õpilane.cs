@@ -5,14 +5,60 @@ using System.Text;
 namespace OOPSamrjakov
 {
     // Õpilane pärib klassist Isik
-    public class Õpilane : Isik
+    public class Õpilane : Isik, ITööline
     {
         public string Kool { get; set; }
         public int Klass { get; set; }
+        public Õppevorm Staatus { get; set; } //Kasutame enumi andmetüübina
+
+        public double KeskminneHinne { get; set; } //Põhitoetus (60 eur)
+        public int Puudumised { get; set; } = 0; //Põhetoetus
+        public bool KasOnSotsiaalneTõend { get; set; } = false; //Eritoetus (120 eur)
+
+        public TööTüüp VäljamakseTüüp { get; set; } = TööTüüp.Toetus;
 
         public void Õpi()
         {
             Console.WriteLine($"{Nimi} õpib {Kool} {Klass}. klassis.");
+        }
+
+        public override void Kirjelda()
+        {
+            Console.WriteLine($"Mina olen õpilane {Nimi} ja käin {Klass}. klassis. Vorm: {Staatus}");
+        }
+
+        public double ArvutaPalk()
+        {
+            //if (KeskminneHinne >= 3.8 || KeskminneHinne < 5 || Puudumised < 10 || Puudumised >= 0)
+            //{
+            //    return 60; //Ainult põhitoetus
+            //}
+            //else if (KeskminneHinne >= 3.8 || KeskminneHinne < 5 || Puudumised < 10 || Puudumised >= 0 || KasOnSotsiaalneTõend == true)
+            //{
+            //    return 60 + 120; //Põhitoetus koos eritoetusega
+            //}
+            //else if (KasOnSotsiaalneTõend == true)
+            //{
+            //    return 120; //Ainult eritoetus
+            //}
+            //else
+            //{
+            //    return 0; //Mitte midagi
+            //}
+
+            double Põhitoetus = 0;
+            double Eritoetus = 0;
+
+            if (KeskminneHinne >= 3.8 || Puudumised < 10)
+            {
+                Põhitoetus += 60; //Ainult põhitoetus
+            }
+            if (KasOnSotsiaalneTõend)
+            {
+                Eritoetus += 120;
+            }
+
+            return Põhitoetus + Eritoetus;
         }
     }
 }

@@ -4,14 +4,30 @@ using System.Text;
 
 namespace OOPSamrjakov
 {
-    // Õpetaja pärib klassist Isik (koolon tähistab pärimist)
-    public class Õpetaja : Isik
+    //Õpetaja pärib klassist Isik (koolon tähistab pärimist)
+    public class Õpetaja : Isik, ITööline
     {
-            public string Aine { get; set; }
+        public string Aine { get; set; }
+        public double Tunnitasu { get; set; }
+        public int TunnidKuus { get; set; }
 
-            public void Õpeta()
-            {
-                Console.WriteLine($"{Nimi} õpetab ainet: {Aine}.");
-            }
+        public TööTüüp VäljamakseTüüp { get; set; } = TööTüüp.Palk;
+
+        public void Õpeta()
+        {
+            Console.WriteLine($"{Nimi} õpetab ainet: {Aine}.");
+        }
+
+        //Override kirjutab abstraktse meetodi üle
+        public override void Kirjelda()
+        {
+            Console.WriteLine($"Mina olen õpetaja {Nimi} ja ma õpetan: {Aine}.");
+        }
+
+        //Kohustuslik meetod liidesest. ITööline liidese meetodi realiseerimine
+        public double ArvutaPalk()
+        {
+            return Tunnitasu * TunnidKuus; //Kuupalk
+        }
     }
 }
