@@ -24,5 +24,25 @@ namespace OOPSamrjakov
                 isik.Kirjelda();
             }
         }
+
+        public void OtsiNimeJärgi(string OtsitavNimi)
+        {
+            bool Leitud = false;
+
+            foreach (var isik in inimesed)
+            {
+                if (isik.Nimi.Contains(OtsitavNimi, StringComparison.OrdinalIgnoreCase))
+                {
+                    isik.Kirjelda();
+                    Console.WriteLine("---------------------");
+                    Leitud = true;
+                }
+            }
+
+            if (!Leitud)
+            {
+                Console.WriteLine("Otsitav isik ei leitud!");
+            }
+        }
     }
 }

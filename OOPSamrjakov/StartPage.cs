@@ -55,6 +55,7 @@ namespace OOPSamrjakov
             //2. Variant
             Random RND = new Random();
             string[] Nimed = { "Maria", "Kati", "Juhan", "Anna", "Siim" };
+            string[] Hinne = { "1", "2", "3", "4", "5" };
             //Õppevorm[] Õppevormid = { Õppevorm.Päevane, Õppevorm.Kaugõpe, Õppevorm.Ekstern, Õppevorm.AkadeemilinePuhkus };
             Õppevorm[] Õppevormid = (Õppevorm[])Enum.GetValues(typeof(Õppevorm));
             for (int I = 0; I < Nimed.Length; I++)
@@ -91,7 +92,20 @@ namespace OOPSamrjakov
             minuKool.LisaInimene(Õpilane2);
             minuKool.LisaInimene(Õpetaja2);
 
-            minuKool.KuvaKõik(); 
+            Direktor Direktor1 = new Direktor { Nimi = "Arno", Tunnitasu = 35, TunnidKuus = 60, LisaTasu = 750 };
+            Console.WriteLine($"Direktori nimi on {Direktor1.Nimi}, teie palk on {Direktor1.ArvutaPalk()}");
+
+            Õpetaja UusÕpetaja1 = new Õpetaja { Nimi = "Tatjana" };
+            UusÕpetaja1.Hinda(Hinne[RND.Next(1, 5)]);
+
+            Üliõpilane Üliõpilane1 = new Üliõpilane { Nimi = "Oleg", Eriala = "IT-Osakond", Staatus = Õppevorm.Päevane };
+            Üliõpilane1.Kirjelda();
+            minuKool.LisaInimene(Üliõpilane1);
+            minuKool.KuvaKõik();
+
+            Console.WriteLine("Sisesta otsitav nimi");
+            string otsitavnimi = Console.ReadLine();
+            minuKool.OtsiNimeJärgi(otsitavnimi);
         }
     }
 }

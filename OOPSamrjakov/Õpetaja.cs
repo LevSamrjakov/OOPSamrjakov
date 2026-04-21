@@ -5,7 +5,7 @@ using System.Text;
 namespace OOPSamrjakov
 {
     //Õpetaja pärib klassist Isik (koolon tähistab pärimist)
-    public class Õpetaja : Isik, ITööline
+    public class Õpetaja : Isik, ITööline, IHindaja
     {
         public string Aine { get; set; }
         public double Tunnitasu { get; set; }
@@ -25,9 +25,14 @@ namespace OOPSamrjakov
         }
 
         //Kohustuslik meetod liidesest. ITööline liidese meetodi realiseerimine
-        public double ArvutaPalk()
+        public virtual double ArvutaPalk()
         {
             return Tunnitasu * TunnidKuus; //Kuupalk
+        }
+
+        public void Hinda(string Hinne)
+        {
+            Console.WriteLine($"Õpetaja lisab hinne: {Hinne}");
         }
     }
 }
