@@ -14,10 +14,15 @@ namespace OOPSamrjakov
         // Avalik omadus (Property) automaatse get/set logikaga
         public string Nimi { get; set; }
 
+        // Staatiline väli - ühine KÕIGILE isikutele!
+        public static int InimesteKoguarv = 0;
         // Baasklassi konstruktor
         public Isik(string nimi)
         {
             Nimi = nimi;
+
+            // Iga kord, kui luuakse uus isik (käivitub konstruktor), suurendame loendurit
+            InimesteKoguarv++;
         }
 
         // Abstraktne meetod – sisu puudub, alamklassid PEAVAD selle ise looma

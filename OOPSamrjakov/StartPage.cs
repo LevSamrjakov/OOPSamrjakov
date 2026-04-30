@@ -118,6 +118,15 @@ namespace OOPSamrjakov
 
             minuKool.Otsi("Mari"); // Käivitab esimese versiooni
             minuKool.Otsi(2008);   // Käivitab teise versiooni
+
+            Õpilane juku = new Õpilane("Juku", 9, Õppevorm.Päevane);
+            Õpetaja mati = new Õpetaja("Mati", "Füüsika");
+
+            // Paneme tähele, me ei küsi juku.InimesteKoguarv, vaid küsime seda otse klassilt:
+            Console.WriteLine($"Koolis on hetkel süsteemis registreeritud {Isik.InimesteKoguarv} isikut.");
+            // Väljund: Koolis on hetkel süsteemis registreeritud 2 isikut.
+
+
         }
     }
 }
