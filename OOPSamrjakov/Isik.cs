@@ -17,6 +17,12 @@ namespace OOPSamrjakov
         // Staatiline väli - ühine KÕIGILE isikutele!
         public static int InimesteKoguarv = 0;
         // Baasklassi konstruktor
+
+        public Isik()
+        {
+
+        }
+
         public Isik(string nimi)
         {
             Nimi = nimi;
@@ -29,6 +35,18 @@ namespace OOPSamrjakov
         public abstract void Kirjelda();
 
         // Kontrollitud omadus
+        //public int Sünniaasta
+        //{
+        //    get { return sünniaasta; }
+        //    set
+        //    {
+        //        if (value > 1900 && value <= DateTime.Now.Year)
+        //            sünniaasta = value;
+        //        else
+        //            Console.WriteLine("Vigane sünniaasta!");
+        //    }
+        //}
+
         public int Sünniaasta
         {
             get { return sünniaasta; }

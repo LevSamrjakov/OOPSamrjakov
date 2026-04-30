@@ -14,6 +14,14 @@ namespace OOPSamrjakov
             inimesed.Add(isik);
         }
 
+        public void LisaInimene(List<Isik> uuedInimesed)
+        {
+
+            inimesed.AddRange(uuedInimesed);
+            foreach (var isik in inimesed)
+                Console.WriteLine($"Lisati {isik.Nimi} uue inimene.");
+        }
+
         public void KuvaKõik()
         {
             Console.WriteLine("\n--- KOOLI NIMEKIRI ---");
@@ -60,6 +68,27 @@ namespace OOPSamrjakov
         {
             Console.WriteLine($"\nOtsime kedagi, kes on sündinud aastal: {sünniaasta}");
             // Siin eeldame, et lisasime Isik klassile ka Sünniaasta tagasi
+        }
+
+        public void SalvestaFaili(string failinimi)
+        {
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(failinimi, false, Encoding.UTF8))
+                {
+                    sw.WriteLine($"--- KOOLI NIMEKIRI (Salvestatud: {DateTime.Now}) ---");
+
+                    foreach (var isik in inimesed)
+                    {
+                        sw.WriteLine(isik.Kirjelda()); // Salvestame faili iga isiku kirjelduse
+                    }
+                }
+                Console.WriteLine($"\nAndmed on edukalt salvestatud faili: {failinimi}");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Viga salvestamisel: {e.Message}");
+            }
         }
     }
 }

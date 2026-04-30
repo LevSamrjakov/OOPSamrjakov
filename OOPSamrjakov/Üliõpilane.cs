@@ -8,6 +8,11 @@ namespace OOPSamrjakov
     {
         public string Eriala { get; set; }
 
+        public Üliõpilane(string nimi, string eriala, Õppevorm staatus)
+        {
+
+        }
+
         public override void Kirjelda()
         {
             Console.WriteLine($"Mina olen üliõpilane {Nimi} ja õpin {Eriala}. Vorm: {Staatus}");

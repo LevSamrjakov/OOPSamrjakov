@@ -11,6 +11,11 @@ namespace OOPSamrjakov
         public double Tunnitasu { get; set; }
         public int TunnidKuus { get; set; }
 
+        public Õpetaja() : base() // Kutsume baasklassi konstruktorit
+        {
+            // Siin saame teha täiendavaid initsialiseerimisi, kui vaja
+        }
+
         public Õpetaja(string nimi, string aine, double tunnitasu, int tunnidKuus) : base(nimi)
         {
             Aine = aine;

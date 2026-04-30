@@ -17,24 +17,24 @@ namespace OOPSamrjakov
             //Inimene1.Tervita(); //Väljund: Tere! Mina olen Lev...
 
             //Õpetaja andmed
-            Õpetaja Õpetaja1 = new Õpetaja();
-            Õpetaja1.Nimi = "Marina";
-            Õpetaja1.Sünniaasta = 2008;
+            Õpetaja Õpetaja1 = new Õpetaja("Marina", "Programmeerimine", 20, 30);
+            //Õpetaja1.Nimi = "Marina";
+            //Õpetaja1.Sünniaasta = 2008;
             Õpetaja1.Tervita();
 
-            Õpetaja1.Aine = "Programmeerimine";
+            //Õpetaja1.Aine = "Programmeerimine";
             Õpetaja1.Õpeta();
 
             Õpetaja1.Kirjelda();
 
             //Õpilase andmed
-            Õpilane Õpilane1 = new Õpilane();
-            Õpilane1.Nimi = "Konstantin";
-            Õpilane1.Sünniaasta = 2008;
+            Õpilane Õpilane1 = new Õpilane("Konstantin", 11, Õppevorm.Päevane);
+            //Õpilane1.Nimi = "Konstantin";
+            //Õpilane1.Sünniaasta = 2008;
             Õpilane1.Tervita();
 
-            Õpilane1.Kool = "Ehte Humanitaargümnaasium";
-            Õpilane1.Klass = 11;
+            //Õpilane1.Kool = "Ehte Humanitaargümnaasium";
+            //Õpilane1.Klass = 11;
             Õpilane1.Õpi();
 
             Õpilane1.Kirjelda();
@@ -43,9 +43,9 @@ namespace OOPSamrjakov
 
             List<ITööline> Palgasaajad = new List<ITööline>();
 
-            Õpilane Õpilane2 = new Õpilane { Nimi = "Kadi", Klass = 11, Kool = "Kutsehariduskeskus", KeskminneHinne = 4.5, Puudumised = 3, KasOnSotsiaalneTõend = false, Staatus = Õppevorm.Päevane };
+            Õpilane Õpilane2 = new Õpilane("Kadi", 11, Õppevorm.Päevane); /*{ Nimi = "Kadi", Klass = 11, Kool = "Kutsehariduskeskus", KeskminneHinne = 4.5, Puudumised = 3, KasOnSotsiaalneTõend = false, Staatus = Õppevorm.Päevane };*/
 
-            Õpetaja Õpetaja2 = new Õpetaja { Nimi = "Anna", Aine = "Python", Tunnitasu = 20, TunnidKuus = 80 };
+            Õpetaja Õpetaja2 = new Õpetaja("Anna", "Python", 20, 80); /*{ Nimi = "Anna", Aine = "Python", Tunnitasu = 20, TunnidKuus = 80 };*/
 
             Palgasaajad.Add(Õpilane2);
             Palgasaajad.Add(Õpetaja2);
@@ -60,15 +60,15 @@ namespace OOPSamrjakov
             Õppevorm[] Õppevormid = (Õppevorm[])Enum.GetValues(typeof(Õppevorm));
             for (int I = 0; I < Nimed.Length; I++)
             {
-                Õpilane Õpilane = new Õpilane()
+                string Nimi = Nimed[RND.Next(Nimed.Length)];
+                int Klass = RND.Next(1, 13);
+                Õppevorm Staatus = Õppevormid[RND.Next(Õppevormid.Length)];
+                Õpilane Õpilane = new Õpilane(Nimi, Klass, Staatus)
                 {
-                    Nimi = Nimed[RND.Next(Nimed.Length)],
-                    Klass = RND.Next(1, 13),
                     Kool = "TTHK",
                     KeskminneHinne = RND.NextDouble() * 5, //Keskmine hinne vahemikus 0-5
                     Puudumised = RND.Next(0, 350), //Puudumised vahemikus 0-350
                     KasOnSotsiaalneTõend = RND.Next(0, 2) == 1,
-                    Staatus = Õppevormid[RND.Next(Õppevormid.Length)]
                 };
                 Palgasaajad.Add(Õpilane);
             }
@@ -82,8 +82,8 @@ namespace OOPSamrjakov
 
             Koolihaldus minuKool = new Koolihaldus();
 
-            Õpetaja op = new Õpetaja { Nimi = "Mati", Aine = "Programmeerimine" };
-            Õpilane opilane1 = new Õpilane { Nimi = "Mari", Klass = 10, Staatus = Õppevorm.Päevane };
+            Õpetaja op = new Õpetaja("Mati", "Programmeerimine", 15, 45); /*{ Nimi = "Mati", Aine = "Programmeerimine" };*/
+            Õpilane opilane1 = new Õpilane("Mari", 10, Õppevorm.Päevane); /*{ Nimi = "Mari", Klass = 10, Staatus = Õppevorm.Päevane };*/
 
             minuKool.LisaInimene(op);
             minuKool.LisaInimene(opilane1);
@@ -92,20 +92,20 @@ namespace OOPSamrjakov
             minuKool.LisaInimene(Õpilane2);
             minuKool.LisaInimene(Õpetaja2);
 
-            Direktor Direktor1 = new Direktor { Nimi = "Arno", Tunnitasu = 35, TunnidKuus = 60, LisaTasu = 750 };
+            Direktor Direktor1 = new Direktor("Arno", 750, 2100); /*{ Nimi = "Arno", Tunnitasu = 35, TunnidKuus = 60, LisaTasu = 750 };*/
             Console.WriteLine($"Direktori nimi on {Direktor1.Nimi}, teie palk on {Direktor1.ArvutaPalk()}");
 
-            Õpetaja UusÕpetaja1 = new Õpetaja { Nimi = "Tatjana" };
+            Õpetaja UusÕpetaja1 = new Õpetaja("Tatjana", "Eesti Keel", 9, 80); /*{ Nimi = "Tatjana" };*/
             UusÕpetaja1.Hinda(Hinne[RND.Next(1, 5)]);
 
-            Üliõpilane Üliõpilane1 = new Üliõpilane { Nimi = "Oleg", Eriala = "IT-Osakond", Staatus = Õppevorm.Päevane };
+            Üliõpilane Üliõpilane1 = new Üliõpilane("Oleg", "IT-Osakond", Õppevorm.Päevane); /*{ Nimi = "Oleg", Eriala = "IT-Osakond", Staatus = Õppevorm.Päevane };*/
             Üliõpilane1.Kirjelda();
             minuKool.LisaInimene(Üliõpilane1);
             minuKool.KuvaKõik();
 
             Console.WriteLine("Sisesta otsitav nimi");
             string otsitavnimi = Console.ReadLine();
-            minuKool.OtsiNimeJärgi(otsitavnimi);
+            minuKool.Otsi(otsitavnimi);
 
             // Vana viis (ilma konstruktorita):
             // Õpilane mari = new Õpilane();
@@ -120,13 +120,16 @@ namespace OOPSamrjakov
             minuKool.Otsi(2008);   // Käivitab teise versiooni
 
             Õpilane juku = new Õpilane("Juku", 9, Õppevorm.Päevane);
-            Õpetaja mati = new Õpetaja("Mati", "Füüsika");
+            Õpetaja mati = new Õpetaja("Mati", "Füüsika", 7.5, 30);
 
             // Paneme tähele, me ei küsi juku.InimesteKoguarv, vaid küsime seda otse klassilt:
             Console.WriteLine($"Koolis on hetkel süsteemis registreeritud {Isik.InimesteKoguarv} isikut.");
             // Väljund: Koolis on hetkel süsteemis registreeritud 2 isikut.
 
             Õpetaja UusÕpetaja = new Õpetaja("Maksim", "Kehakultuur", 10, 15);
+
+
+
         }
     }
 }
