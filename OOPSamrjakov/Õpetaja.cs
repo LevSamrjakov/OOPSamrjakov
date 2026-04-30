@@ -11,6 +11,13 @@ namespace OOPSamrjakov
         public double Tunnitasu { get; set; }
         public int TunnidKuus { get; set; }
 
+        public Õpetaja(string nimi, string aine, double tunnitasu, int tunnidKuus) : base(nimi)
+        {
+            Aine = aine;
+            Tunnitasu = tunnitasu;
+            TunnidKuus = tunnidKuus;
+        }
+
         public TööTüüp VäljamakseTüüp { get; set; } = TööTüüp.Palk;
 
         public void Õpeta()

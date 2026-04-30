@@ -126,7 +126,7 @@ namespace OOPSamrjakov
             Console.WriteLine($"Koolis on hetkel süsteemis registreeritud {Isik.InimesteKoguarv} isikut.");
             // Väljund: Koolis on hetkel süsteemis registreeritud 2 isikut.
 
-
+            Õpetaja UusÕpetaja = new Õpetaja("Maksim", "Kehakultuur", 10, 15);
         }
     }
 }
