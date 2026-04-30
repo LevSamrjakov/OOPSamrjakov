@@ -14,6 +14,12 @@ namespace OOPSamrjakov
         // Avalik omadus (Property) automaatse get/set logikaga
         public string Nimi { get; set; }
 
+        // Baasklassi konstruktor
+        public Isik(string nimi)
+        {
+            Nimi = nimi;
+        }
+
         // Abstraktne meetod – sisu puudub, alamklassid PEAVAD selle ise looma
         public abstract void Kirjelda();
 

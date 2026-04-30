@@ -106,6 +106,18 @@ namespace OOPSamrjakov
             Console.WriteLine("Sisesta otsitav nimi");
             string otsitavnimi = Console.ReadLine();
             minuKool.OtsiNimeJärgi(otsitavnimi);
+
+            // Vana viis (ilma konstruktorita):
+            // Õpilane mari = new Õpilane();
+            // mari.Nimi = "Mari";
+            // mari.Klass = 10;
+            // mari.Staatus = Õppevorm.Päevane;
+
+            // Uus viis (konstruktoriga):
+            // Õpilane mari = new Õpilane("Mari", 10, Õppevorm.Päevane);
+
+            minuKool.Otsi("Mari"); // Käivitab esimese versiooni
+            minuKool.Otsi(2008);   // Käivitab teise versiooni
         }
     }
 }

@@ -11,6 +11,13 @@ namespace OOPSamrjakov
         public int Klass { get; set; }
         public Õppevorm Staatus { get; set; } //Kasutame enumi andmetüübina
 
+        // Alamklassi konstruktor peab "base" märksõnaga kutsuma baasklassi konstruktorit
+        public Õpilane(string nimi, int klass, Õppevorm staatus) : base(nimi)
+        {
+            Klass = klass;
+            Staatus = staatus;
+        }
+
         public double KeskminneHinne { get; set; } //Põhitoetus (60 eur)
         public int Puudumised { get; set; } = 0; //Põhetoetus
         public bool KasOnSotsiaalneTõend { get; set; } = false; //Eritoetus (120 eur)
