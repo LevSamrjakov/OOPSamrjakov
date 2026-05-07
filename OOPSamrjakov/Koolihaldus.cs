@@ -30,7 +30,7 @@ namespace OOPSamrjakov
             {
                 // Polümorfism teeb siin imesid! 
                 // C# teab ise, kas käivitada Õpetaja või Õpilase Kirjelda() meetod.
-                isik.Kirjelda();
+                Console.WriteLine(isik.Kirjelda());
             }
         }
 
@@ -58,9 +58,22 @@ namespace OOPSamrjakov
         public void Otsi(string otsitavNimi)
         {
             Console.WriteLine($"\nOtsime nime: {otsitavNimi}");
+
+            bool leitud = false;
+
             foreach (var isik in inimesed)
             {
-                if (isik.Nimi.Contains(otsitavNimi)) isik.Kirjelda();
+                if (isik.Nimi != null &&
+                    isik.Nimi.Contains(otsitavNimi, StringComparison.OrdinalIgnoreCase))
+                {
+                    Console.WriteLine(isik.Kirjelda());
+                    leitud = true;
+                }
+            }
+
+            if (!leitud)
+            {
+                Console.WriteLine("Otsitav isik ei leitud!");
             }
         }
 
@@ -68,7 +81,22 @@ namespace OOPSamrjakov
         public void Otsi(int sünniaasta)
         {
             Console.WriteLine($"\nOtsime kedagi, kes on sündinud aastal: {sünniaasta}");
-            // Siin eeldame, et lisasime Isik klassile ka Sünniaasta tagasi
+
+            bool leitud = false;
+
+            foreach (var isik in inimesed)
+            {
+                if (isik.Sünniaasta == sünniaasta)
+                {
+                    Console.WriteLine(isik.Kirjelda());
+                    leitud = true;
+                }
+            }
+
+            if (!leitud)
+            {
+                Console.WriteLine("Selle sünniaastaga isikut ei leitud!");
+            }
         }
 
         public void SalvestaFaili(string failinimi)
@@ -98,7 +126,7 @@ namespace OOPSamrjakov
             {
                 if (isik is Õpilane)
                 {
-                    isik.Kirjelda();
+                    Console.WriteLine(isik.Kirjelda());
                 }
             }
         }

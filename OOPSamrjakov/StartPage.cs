@@ -26,7 +26,7 @@ namespace OOPSamrjakov
             //Õpetaja1.Aine = "Programmeerimine";
             Õpetaja1.Õpeta();
 
-            Õpetaja1.Kirjelda();
+            Console.WriteLine(Õpetaja1.Kirjelda());
 
             //Õpilase andmed
             Õpilane Õpilane1 = new Õpilane("Konstantin", 11, Õppevorm.Päevane);
@@ -38,7 +38,7 @@ namespace OOPSamrjakov
             //Õpilane1.Klass = 11;
             Õpilane1.Õpi();
 
-            Õpilane1.Kirjelda();
+            Console.WriteLine(Õpilane1.Kirjelda());
 
             //Õpilane, ITööline
 
@@ -100,7 +100,7 @@ namespace OOPSamrjakov
             UusÕpetaja1.Hinda(Hinne[RND.Next(1, 5)]);
 
             Üliõpilane Üliõpilane1 = new Üliõpilane("Oleg", "IT-Osakond", Õppevorm.Päevane); /*{ Nimi = "Oleg", Eriala = "IT-Osakond", Staatus = Õppevorm.Päevane };*/
-            Üliõpilane1.Kirjelda();
+            Console.WriteLine(Üliõpilane1.Kirjelda());
             minuKool.LisaInimene(Üliõpilane1);
             minuKool.KuvaKõik();
 
