@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Numerics;
 using System.Text;
 
 namespace OOPSamrjakov
@@ -129,7 +130,17 @@ namespace OOPSamrjakov
             Õpetaja UusÕpetaja = new Õpetaja("Maksim", "Kehakultuur", 10, 15);
 
 
+            try
+            {
+                Õpilane opilane = new Õpilane();
+                opilane.Sünniaasta = 3000;
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine($"Viga: {e.Message}");
+            }
 
+            minuKool.KuvaAinultÕpilased();
         }
     }
 }

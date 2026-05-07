@@ -31,9 +31,10 @@ namespace OOPSamrjakov
         }
 
         //Override kirjutab abstraktse meetodi üle
-        public override void Kirjelda()
+        public override string Kirjelda()
         {
-            Console.WriteLine($"Mina olen õpetaja {Nimi} ja ma õpetan: {Aine}.");
+            string Õpetaja_kirjelda = $"Mina olen õpetaja {Nimi} ja ma õpetan: {Aine}.";
+            return Õpetaja_kirjelda;
         }
 
         //Kohustuslik meetod liidesest. ITööline liidese meetodi realiseerimine

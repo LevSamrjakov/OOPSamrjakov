@@ -32,7 +32,7 @@ namespace OOPSamrjakov
         }
 
         // Abstraktne meetod – sisu puudub, alamklassid PEAVAD selle ise looma
-        public abstract void Kirjelda();
+        public abstract string Kirjelda();
 
         // Kontrollitud omadus
         //public int Sünniaasta
@@ -55,7 +55,7 @@ namespace OOPSamrjakov
                 if (value > 1900 && value <= DateTime.Now.Year)
                     sünniaasta = value;
                 else
-                    Console.WriteLine("Vigane sünniaasta!");
+                    throw new ArgumentException("Vigane aasta!");
             }
         }
 

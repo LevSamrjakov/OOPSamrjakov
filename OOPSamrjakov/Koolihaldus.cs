@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
 namespace OOPSamrjakov
@@ -88,6 +89,17 @@ namespace OOPSamrjakov
             catch (Exception e)
             {
                 Console.WriteLine($"Viga salvestamisel: {e.Message}");
+            }
+        }
+
+        public void KuvaAinultÕpilased()
+        {
+            foreach (var isik in inimesed)
+            {
+                if (isik is Õpilane)
+                {
+                    isik.Kirjelda();
+                }
             }
         }
     }

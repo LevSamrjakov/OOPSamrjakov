@@ -13,9 +13,10 @@ namespace OOPSamrjakov
             LisaTasu = lisaTasu;
         }
 
-        public override void Kirjelda()
+        public override string Kirjelda()
         {
-            Console.WriteLine($"Mina olen direktor, minu nimi on {Nimi} ja ma saan lisa tasu {LisaTasu}");
+            string direktor_kirjelda = $"Mina olen direktor: {Nimi} ";
+            return direktor_kirjelda;
         }
 
         public override double ArvutaPalk()

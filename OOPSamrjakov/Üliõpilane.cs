@@ -7,15 +7,17 @@ namespace OOPSamrjakov
     public class Üliõpilane : Õpilane
     {
         public string Eriala { get; set; }
+        public string Kuurs { get; set; }
 
         public Üliõpilane(string nimi, string eriala, Õppevorm staatus)
         {
 
         }
 
-        public override void Kirjelda()
+        public override string Kirjelda()
         {
-            Console.WriteLine($"Mina olen üliõpilane {Nimi} ja õpin {Eriala}. Vorm: {Staatus}");
+            string üli_õpilane = $"Üliõpilane {Nimi} õpib {Kuurs}. Kuursusel. Vorm: {Staatus}";
+            return üli_õpilane;
         }
 
         //public override void Kirjelda()

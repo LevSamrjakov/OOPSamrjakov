@@ -34,9 +34,10 @@ namespace OOPSamrjakov
             Console.WriteLine($"{Nimi} õpib {Kool} {Klass}. klassis.");
         }
 
-        public override void Kirjelda()
+        public override string Kirjelda()
         {
-            Console.WriteLine($"Mina olen õpilane {Nimi} ja käin {Klass}. klassis. Vorm: {Staatus}");
+            string õpilane_kirjelda = $"{Nimi} õpib {Klass}. klassis. Vorm: {Staatus}. Kool: {Kool}.";
+            return õpilane_kirjelda;
         }
 
         public double ArvutaPalk()
